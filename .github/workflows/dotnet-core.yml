@@ -36,7 +36,5 @@ jobs:
         dotnet-version: 3.1.301
     - name: Install dependencies
       run: dotnet restore
-    - name: Build
-      run: dotnet build --configuration Release --no-restore
     - name: Deploy
-      run: msbuild aedalatnew.csproj -t:HelloWorld
+      run: msbuild aedalatnew.csproj /p:DeployOnBuild=true /p:PublishProfile=IISProfile
